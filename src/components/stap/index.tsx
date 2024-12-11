@@ -1,6 +1,5 @@
 import { Text, View } from "react-native";
 import { style } from "./styles";
-
 import { colors } from "@/styles/theme";
 
 type Props = {

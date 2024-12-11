@@ -16,7 +16,7 @@ export const styles = StyleSheet.create({
   subtitle: {
     fontSize: 16,
     fontFamily: fontFamily.regular,
-    color: colors.gray[500],
+    color: colors.gray[400],
     marginTop: 12,
   },
 })

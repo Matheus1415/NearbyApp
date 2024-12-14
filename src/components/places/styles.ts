@@ -5,7 +5,7 @@ export const style = StyleSheet.create({
   container: {
     backgroundColor: colors.gray[100],
   },
-  constent: {
+  content: {
     gap: 12,
     padding: 24,
     paddingBottom: 100,

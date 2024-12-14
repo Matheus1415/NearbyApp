@@ -1,76 +1,76 @@
-import { useEffect, useState } from "react";
-import { View, Alert, Text } from "react-native";
-import MapView, { Callout, Marker } from "react-native-maps";
-import * as Location from "expo-location";
-import { router } from "expo-router";
+import { useEffect, useState } from "react"
+import { View, Alert, Text } from "react-native"
+import MapView, { Callout, Marker } from "react-native-maps"
+import * as Location from "expo-location"
+import { router } from "expo-router"
 
-import { api } from "@/service/api";
-import { fontFamily, colors } from "@/styles/theme";
+import { api } from "@/service/api"
+import { fontFamily, colors } from "@/styles/theme"
 
-import { PlaceProps } from "@/components/place";
-import { Categories, CategoryProps } from "@/components/categories";
-import Places from "@/components/places";
+import { Places } from "@/components/places"
+import { PlaceProps } from "@/components/place"
+import { Categories, CategoriesProps } from "@/components/categories"
 
 type MarketsProps = PlaceProps & {
-  latitude: number;
-  longitude: number;
-};
+  latitude: number
+  longitude: number
+}
 
 const currentLocation = {
   latitude: -23.561187293883442,
   longitude: -46.656451388116494,
-};
+}
 
 export default function Home() {
-  const [categories, setCategories] = useState<CategoryProps>([]);
-  const [category, setCategory] = useState("");
-  const [markets, setMarkets] = useState<MarketsProps[]>([]);
+  const [categories, setCategories] = useState<CategoriesProps>([])
+  const [category, setCategory] = useState("")
+  const [markets, setMarkets] = useState<MarketsProps[]>([])
 
   async function fetchCategories() {
     try {
-      const { data } = await api.get("/categories");
-      setCategories(data);
-      setCategory(data[0].id);
+      const { data } = await api.get("/categories")
+      setCategories(data)
+      setCategory(data[0].id)
     } catch (error) {
-      console.log(error);
-      Alert.alert("Categorias", "Não foi possível carregar as categorias.");
+      console.log(error)
+      Alert.alert("Categorias", "Não foi possível carregar as categorias.")
     }
   }
 
   async function fetchMarkets() {
     try {
       if (!category) {
-        return;
+        return
       }
 
-      const { data } = await api.get("/markets/category/" + category);
-      setMarkets(data);
+      const { data } = await api.get("/markets/category/" + category)
+      setMarkets(data)
     } catch (error) {
-      console.log(error);
-      Alert.alert("Locais", "Não foi possível carregar os locais.");
+      console.log(error)
+      Alert.alert("Locais", "Não foi possível carregar os locais.")
     }
   }
 
   async function getCurrentLocation() {
     try {
-      const { granted } = await Location.requestForegroundPermissionsAsync();
+      const { granted } = await Location.requestForegroundPermissionsAsync()
 
       if (granted) {
-        const location = await Location.getCurrentPositionAsync();
-        console.log(location);
+        const location = await Location.getCurrentPositionAsync()
+        console.log(location)
       }
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
   }
 
   useEffect(() => {
-    fetchCategories();
-  }, []);
+    fetchCategories()
+  }, [])
 
   useEffect(() => {
-    fetchMarkets();
-  }, [category]);
+    fetchMarkets()
+  }, [category])
 
   return (
     <View style={{ flex: 1, backgroundColor: "#CECECE" }}>
@@ -85,8 +85,8 @@ export default function Home() {
         initialRegion={{
           latitude: currentLocation.latitude,
           longitude: currentLocation.longitude,
-          latitudeDelta: 0.005,
-          longitudeDelta: 0.005,
+          latitudeDelta: 0.01,
+          longitudeDelta: 0.01,
         }}
       >
         <Marker
@@ -137,5 +137,5 @@ export default function Home() {
 
       <Places data={markets} />
     </View>
-  );
+  )
 }

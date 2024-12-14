@@ -1,19 +1,20 @@
-import Category from "../category";
-import { FlatList } from "react-native";
-import { style } from "./styles";
+import { FlatList } from "react-native"
 
-export type CategoryProps = {
-  id: string;
-  name: string;
-}[];
+import { style } from "./styles"
+import Category from "../category"
 
-type CategoriesProps = {
-  data: CategoryProps;
-  selected: string;
-  onSelect: (id: string) => void;
-};
+export type CategoriesProps = {
+  id: string
+  name: string
+}[]
 
-export function Categories({ data, selected, onSelect }: CategoriesProps) {
+type Props = {
+  data: CategoriesProps
+  selected: string
+  onSelect: (id: string) => void
+}
+
+export function Categories({ data, selected, onSelect }: Props) {
   return (
     <FlatList
       data={data}

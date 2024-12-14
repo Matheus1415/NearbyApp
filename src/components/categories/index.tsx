@@ -27,8 +27,9 @@ export function Categories({ data, selected, onSelect }: CategoriesProps) {
         />
       )}
       horizontal
-      showsHorizontalScrollIndicator
-      contentContainerStyle={style.container}
+      showsHorizontalScrollIndicator={false}
+      contentContainerStyle={style.content}
+      style={style.container}
     />
-  );
+  )
 }

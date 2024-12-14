@@ -24,12 +24,12 @@ export const style = StyleSheet.create({
     gap: 4,
   },
   name: {
-    fontSize: 14,
+    fontSize: 16,
     fontFamily: fontFamily.medium,
     color: colors.gray[600],
   },
   description: {
-    fontSize: 12,
+    fontSize: 14,
     fontFamily: fontFamily.regular,
     color: colors.gray[500],
   },

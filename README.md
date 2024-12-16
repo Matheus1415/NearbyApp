@@ -1,4 +1,4 @@
-# App de Localização e Cupons
+# NearbyApp
 
 Este aplicativo desenvolvido com **React Native** e **Expo** permite aos usuários visualizar a localização de estabelecimentos próximos, acessar suas páginas e resgatar cupons utilizando QR Codes.
 

@@ -18,9 +18,7 @@ Este aplicativo desenvolvido com **React Native** e **Expo** permite aos usuári
 
 ## Pré-requisitos
 
-- **Node.js**: Versão 14.x ou superior.
-- **Expo CLI**: Instale o Expo CLI globalmente, se ainda não o fez:
-  
+- **Node.js**: Versão 20.x ou superior.  
 
     ### **Passo 1: Clonar o Repositório**
     Clone o repositório do projeto para sua máquina local:

@@ -1,76 +1,125 @@
-# NearbyApp
 
-Este aplicativo desenvolvido com **React Native** e **Expo** permite aos usuários visualizar a localização de estabelecimentos próximos, acessar suas páginas e resgatar cupons utilizando QR Codes.
+# 📍 NearbyApp
+## 📝 Sobre o Projeto
 
-## Funcionalidades
+O NearbyApp é um aplicativo mobile desenvolvido com React Native e Expo, permitindo aos usuários explorar estabelecimentos próximos, acessar suas páginas e resgatar cupons por meio de QR Codes.
 
-- **Localização de Estabelecimentos Próximos**: Mostra os estabelecimentos mais próximos com base na localização do usuário.
-- **Acesso às Páginas dos Estabelecimentos**: O usuário pode acessar mais informações sobre cada estabelecimento ao clicar neles.
-- **Resgatar Cupons por QR Code**: O usuário pode escanear QR Codes presentes nas páginas dos estabelecimentos para resgatar cupons de desconto.
+- Localização de Estabelecimentos Próximos: Identifica estabelecimentos com base na localização atual do usuário.
+- Acesso às Páginas dos Estabelecimentos: Exibe detalhes e informações adicionais de cada estabelecimento.
+- Resgate de Cupons: Permite que os usuários escaneiem QR Codes para obter descontos exclusivos.
 
-## Tecnologias Utilizadas
+## 🖼️ Capturas de Tela
 
-- **React Native**: Framework para construir o aplicativo mobile.
-- **Expo**: Ferramenta para facilitar o desenvolvimento de apps React Native.
-- **expo-location**: Para obter a localização do usuário e mostrar os estabelecimentos próximos.
-- **expo-camera**: Para capturar e ler QR Codes utilizando a câmera do dispositivo.
-- **React Navigation**: Para gerenciar a navegação entre as telas do aplicativo.
+![Foto da Página Inicial](https://github.com/Matheus1415/NearbyApp/blob/main/image/bem-vindo.jpeg)
+![Foto da Home](https://github.com/Matheus1415/NearbyApp/blob/main/image/home.jpeg)
+![Foto do Estabelecimento](https://github.com/Matheus1415/NearbyApp/blob/main/image/estabelecimento.jpeg)
 
-## Pré-requisitos
+## 🚀 Como Usar
 
-- **Node.js**: Versão 20.x ou superior.  
-
-    ### **Passo 1: Clonar o Repositório**
-    Clone o repositório do projeto para sua máquina local:
+1. Clone o repositório:
 
     ```bash
     git clone https://github.com/Matheus1415/NearbyApp.git
     ```
 
-    ### **Passo 2: Instale as dependências:**
-    Instale todas as dependências do projeto utilizando o NPM:
+2. Instale as dependências:
 
     ```bash
+    cd NearbyApp
     npm install
     ```
 
-    ### **Passo 3: Configure as permissões**
-    Se o projeto utilizar recursos de câmera ou localização, como o expo-camera ou expo-location, não se esqueça de adicionar as permissões necessárias nos arquivos de configuração app.json ou app.config.js.
+3. Configure as Permissões
+Se o projeto utilizar recursos como câmera ou localização, adicione as permissões necessárias ao arquivo app.json ou app.config.js:
 
-    ```bash
-    {
+```bash
+{
     "expo": {
         "platforms": ["ios", "android"],
-        "permissions": [
-        "CAMERA",
-        "LOCATION"
-        ]
+        "permissions": ["CAMERA", "LOCATION"]
     }
-    }
+}
+```
 
-    ```
+4. Inicie o Projeto
+Para rodar o aplicativo no seu dispositivo ou emulador, execute:
+```bash
+expo start
+```
 
-    ### **Passo 4: Rodando o projeto:**
-    Para rodar o aplicativo no seu dispositivo ou emulador, execute:
+5. Inicie a API Node.js
+Navegue até a pasta da API e inicie o servidor:
+```bash
+cd ./api
+npm start
+```
+6. Acesse o Site de QR Codes (Opcional)
+[Qrcode](https://qrfy.com/pt)
+
+## 📁 Estrutura do Projeto
+
+```bash
+project-root/
+├── .expo/
+│   └── type+web/          # Tipos e configurações específicas para o projeto web (Expo).
+├── api/
+│   ├── prisma/
+│   │   └── migration/     # Arquivos de migração do banco de dados.
+│   └── src/
+│       ├── controller/    # Controladores de API.
+│       ├── model/         # Modelos do banco de dados.
+│       ├── router/        # Definição de rotas.
+│       ├── middleware/    # Middleware para processamento de requisições.
+│       ├── utils/         # Funções utilitárias.
+│       └── database/      # Conexão e configuração do banco de dados.
+├── src/
+│   ├── app/
+│   │   ├── iutils/       # Funções utilitárias para o frontend.
+│   │   ├── style/        # Estilos da aplicação.
+│   │   ├── service/      # Serviços de comunicação com a API.
+│   │   └── components/   # Componentes reutilizáveis.
+└── package.json          # Dependências do projeto.
+
+
+```
+
+## ⚙️ Tecnologias Utilizadas
+
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=js" alt="JavaScript" width="40" height="40">
+  <img src="https://skillicons.dev/icons?i=react" alt="React" width="40" height="40">
+  <img src="https://skillicons.dev/icons?i=ts" alt="TypeScript" width="40" height="40">
+  <img src="https://skillicons.dev/icons?i=sass" alt="Sass" width="40" height="40">
+  <img src="https://skillicons.dev/icons?i=reactnative" alt="React Native" width="40" height="40">
+  <img src="https://skillicons.dev/icons?i=expo" alt="Expo" width="40" height="40">
+</p>
+
+
+- React Native: Framework principal para - construção da interface.
+- Expo: Ferramenta para desenvolvimento e execução do aplicativo.
+- expo-location: Gerenciamento de localização do dispositivo.
+- expo-camera: Utilização da câmera para leitura de QR Codes.
+- React Navigation: Gerenciamento de rotas e navegação entre telas.
+
+## 🤝 Contribuindo
+
+1. Faça um fork do repositório.
+
+2. Crie um branch para seu recurso
 
     ```bash
-    expo start
+    git checkout -b ALR-feature-01
     ```
 
-    ### **Passo 5: Api Node**
-    Execute o comando abaixo
-
-    ```bash
-    cd ./api
-    ```
+3. Este projeto foi iniciado com o comando:
 
     ```bash
-    npm start
+    git commit -m "Adiciona nova funcionalidade"
     ```
-    ### **Passo 6(opcional): Abrir o site de QRcode**
-    [Qrcode](https://qrfy.com/pt)
-  
-    #### Fotos do aplicativo
-    ![Foto da Página Inicial](https://github.com/Matheus1415/NearbyApp/blob/main/image/bem-vindo.jpeg)
-    ![Foto da Home](https://github.com/Matheus1415/NearbyApp/blob/main/image/home.jpeg)
-    ![Foto do Estabelecimento](https://github.com/Matheus1415/NearbyApp/blob/main/image/estabelecimento.jpeg)
+4. Faça suas alterações:
+
+    ```bash
+    git push origin ALR-feature-01
+    ```
+
+    Essa estrutura deve atender bem às suas necessidades! Se precisar adicionar mais detalhes ou ajustar algo, é só avisar. 🚀
